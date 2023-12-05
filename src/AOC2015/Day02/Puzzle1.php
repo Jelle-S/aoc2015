@@ -10,6 +10,7 @@ class Puzzle1 implements PuzzleInterface {
   }
 
   public function solve() {
+    $result = 0;
     return array_reduce(
       array_map(function($b) { sort($b); return $b; }, array_map(fn($a) => explode('x', $a), explode("\n", trim(file_get_contents($this->input))))),
       function ($carry, $item) {
